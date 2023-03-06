@@ -1,6 +1,9 @@
+require("dotenv").config();
+
 const express = require("express");
 const techtakuRoutes = require("./routes/techtakuRoutes");
 const cors = require("cors");
+const connectDB = require("./config/db.config.js");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -15,4 +18,7 @@ app.get("/", async (req, res) =>
   res.send(`TechTaku API running successfully.`)
 );
 
-app.listen(PORT, () => console.log(`Server started at port ${PORT}`));
+app.listen(PORT, async () => {
+  console.log(`Server started at port ${PORT}`);
+  await connectDB();
+});
