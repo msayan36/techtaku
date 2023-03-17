@@ -1,7 +1,7 @@
 require("dotenv").config();
 
 const express = require("express");
-const techtakuRoutes = require("./routes/techtakuRoutes");
+const mainRouter = require("./routes/main.route");
 const cors = require("cors");
 const connectDB = require("./config/db.config.js");
 
@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use("/api", techtakuRoutes);
+app.use("/", mainRouter);
 
 app.get("/", async (req, res) =>
   res.send(`TechTaku API running successfully.`)

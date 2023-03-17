@@ -2,7 +2,7 @@
   "name": "techtaku-backend",
   "version": "1.0.0",
   "description": "REST api for techtaku.",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js"
