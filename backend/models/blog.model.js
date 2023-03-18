@@ -19,6 +19,9 @@ const blogSchema = new Schema({
         type: String,
         required: true,
     },
+    blogSubDesc:{
+        type: String,
+    },
     author: {
         type: Types.ObjectId,
         ref: "User",
