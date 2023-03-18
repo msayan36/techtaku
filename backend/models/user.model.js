@@ -2,13 +2,31 @@ const mongoose = require("mongoose");
 const {Schema, Types, model} = mongoose;
 
 const userSchema = new Schema({
-    userName: {
+    isAdmin: {
+        type: Boolean,
+        default: false,
+    },
+    username: {
+        type: String,
+        unique: true,
+        required: true,
+    },
+    name:{
+        type: String,
+        required: true,
+    },
+    email:{
+        type: String,
+        required: true,
+        unique: true,
+    },
+    password:{
         type: String,
         required: true,
     },
     img: {
         type: String,
-        required: true,
+        default: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png",
     },
     userDesc: {
         type: String,

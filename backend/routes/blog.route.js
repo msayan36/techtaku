@@ -1,5 +1,6 @@
 const express = require("express");
 const { getAllBlogs, createBlog, updateBlog, deleteBlog } = require("../controller/blog.controller.js");
+const {protect} = require("../middleware/auth.middleware");
 
 const blogRouter = express.Router();
 
@@ -7,12 +8,12 @@ const blogRouter = express.Router();
 blogRouter.get("/", getAllBlogs);
 
 // POST --> Create a blog
-blogRouter.post("/", createBlog);
+blogRouter.post("/", protect, createBlog);
 
 // PUT --> Update a blog
-blogRouter.put("/:slug", updateBlog);
+blogRouter.put("/:slug", protect, updateBlog);
 
 // DELETE --> Delete a blog
-blogRouter.delete("/:slug", deleteBlog);
+blogRouter.delete("/:slug", protect, deleteBlog);
 
 module.exports = blogRouter;

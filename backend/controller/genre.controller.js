@@ -1,11 +1,11 @@
 const asyncHandler = require("express-async-handler");
 
-// Create Genre
+// Create Genre | Admin Only
 const createGenre = asyncHandler(async (req, res) => {
     res.json({status: 201, msg: "Genre Created"});
 });
 
-// Fetch Genre
+// Fetch Genre | Public
 const fetchGenre = asyncHandler(async(req, res) => {
     res.json({status: 200, msg: "Genre Fetched"});
 })

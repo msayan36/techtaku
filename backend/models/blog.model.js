@@ -36,11 +36,6 @@ const blogSchema = new Schema({
     },
     authorDesc: {
         type: String,
-        required: true,
-    },
-    genre: {
-        type: Types.ObjectId, 
-        ref: "Genre"
     },
     genreName: {
         type: String,
